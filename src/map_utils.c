@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 17:35:31 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/25 17:10:40 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:59:14 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ void	build_map_array(t_map *map)
 	char	**char_map;
 
 	fd = open(map->map_name, O_RDONLY);
-	map->map_array = malloc(sizeof(int *) * map->height);
+	map->map_array = malloc(sizeof(char *) * map->height);
 	if (map->map_array == NULL)
 		(ft_printf_fd(2, "Allocation error.\n"), exit(EXIT_FAILURE));
 	while (map->y < map->height)
 	{
-		map->map_array[map->y] = malloc(sizeof(int) * map->width);
+		map->map_array[map->y] = malloc(sizeof(char) * map->width);
 		if (map->map_array[map->y] == NULL)
 			(ft_printf_fd(2, "Allocation error.\n"), exit(EXIT_FAILURE));
 		line = get_next_line(fd);
