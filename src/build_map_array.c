@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   build_map_array.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 17:35:31 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/25 18:59:14 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:51:41 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,11 @@ static void	build_map_line(t_map *map, char **char_map)
 {
 	while (map->x < map->width)
 	{
-		map->map_array[map->y][map->x] = ft_atoi(char_map[map->x]);
-		printf("[%d]", map->map_array[map->y][map->x]);
+		map->map_array[map->y][map->x] = char_map[map->x];
+		printf("[%c]", map->map_array[map->y][map->x]);
 		/*free(char_map[map->x]);*/
 		map->x++;
 	}
-}
-
-bool	is_good_chars(char **char_map)
-{
-	/*int		c_flag;*/
-	/*int		e_flag;*/
-	/*int		p_flag;*/
-	int	i;
-	int	j;
-	
-	i = 0;
-	j = 0;
-	while (char_map[j][i])
-	{
-		while (char_map[j][i] == '1')
-			i++;
-		j++;
-		
-
 }
 
 void	build_map_array(t_map *map)
@@ -62,7 +43,7 @@ void	build_map_array(t_map *map)
 		free(line);
 		map->x = 0;
 		/*printf("\n");*/
-		/*build_map_line(map, char_map);*/
+		build_map_line(map, char_map);
 		map->y++;
 		is_good_chars(char_map);
 		free_split(char_map);
