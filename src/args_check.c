@@ -6,11 +6,11 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:10:54 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/25 15:26:01 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:40:47 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "so_long.h"
 #define INCORRECT_FILETYPE "Incorrect filetype.\nUse <mapname>.ber only.\n"
 
 bool	is_ber_file(char *filename)

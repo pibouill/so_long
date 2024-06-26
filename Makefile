@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/06/25 12:19:17 by pibouill         ###   ########.fr        #
+#    Updated: 2024/06/26 14:44:20 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,13 +60,10 @@ SRC_FILES	:=	main\
 				free_utils\
 				map_check\
 				utils\
-				map_utils\
 				get_map_info\
 				hooks\
 				draw_background\
-				draw_line\
-				draw_fdf\
-				get_points
+				build_map_array
 
 SRC			:= $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC_FILES)))
 OBJ			:= $(addprefix $(BIN_DIR)/, $(addsuffix .o, $(SRC_FILES)))

@@ -6,11 +6,11 @@
 /*   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:22:00 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/12 17:31:23 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:41:02 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "so_long.h"
 
 void	draw_background(mlx_image_t *img)
 {

@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/26 12:52:22 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:42:59 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,23 @@
 # define PURPLE	"\e[38;5;93m"
 # define RESET	"\e[0m"*/
 
-typedef struct	s_point
-{
-	int	x;
-	int	y;
-}				t_point;
+//typedef struct	s_point
+//{
+	//int	x;
+	//int	y;
+//}				t_point;
 
 typedef struct s_map
 {
-	int		**map_array;
+	char	**array;
 	char	*map_name;
-	t_point	*points;
 	int		width;
 	int		height;
 	int		x;
 	int		y;
+	int		c_flag;
+	int		p_flag;
+	int		e_flag;
 }				t_map;
 
 
@@ -75,9 +77,7 @@ void	free_map_array(t_map *map);
 void	get_map_size(t_map *map);
 void	free_split(char **arr);
 void	hook(void *param);
-void	draw_line(t_point curr, t_point next, mlx_image_t *img);
 void	draw_background(mlx_image_t *img);
-void	draw_fdf(t_map *map, mlx_image_t *img, mlx_t *mlx);
-void	get_points(t_map *map);
+bool	is_good_chars(t_map *map);
 
 #endif

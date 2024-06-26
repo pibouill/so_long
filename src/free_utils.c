@@ -6,11 +6,11 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 18:19:57 by pibouill          #+#    #+#             */
-/*   Updated: 2024/05/29 13:51:40 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:43:25 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "so_long.h"
 
 void	free_split(char **split_res)
 {
@@ -28,6 +28,6 @@ void	free_map_array(t_map *map)
 
 	i = 0;
 	while (i < map->height)
-		free(map->map_array[i++]);
-	free(map->map_array);
+		free(map->array[i++]);
+	free(map->array);
 }

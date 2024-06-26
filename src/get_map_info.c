@@ -6,11 +6,11 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:38:04 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/26 12:55:12 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:58:54 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "so_long.h"
 
 int	get_map_height(char *filename)
 {
@@ -60,16 +60,19 @@ int	get_map_width(char *filename)
 		close(fd);
 		return (width);
 	}
-	width = count_width(line, ' ');
+	while (line[width])
+		width++;
 	free(line);
 	close(fd);
-	return (width);
+	return (width - 1);
 }
 
 void	get_map_size(t_map *map)
 {
 	map->width = get_map_width(map->map_name);
 	map->height = get_map_height(map->map_name);
+	printf("%d\n", map->width);
+	printf("%d\n", map->height);
 	if (map->width <= 1 || map->height <= 1)
 	{
 		ft_printf_fd(2, RED "Map too small.\n" RESET);
