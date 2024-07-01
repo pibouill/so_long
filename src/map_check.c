@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:45:03 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/01 13:48:40 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:42:28 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 static int	get_line_width(char *line)
 {
 	int	width;
+	int	i;
 
 	width = 0;
-	while (line)
+	i = 0;
+	while (line[i])
 	{
-		if (*line == '\n')
+		if (line[i] == '\n')
 			return (width);
+		i++;
+	}
 	return (width);
 }
 
@@ -72,28 +76,17 @@ static bool	is_good_inside_chars(t_map *map)
 
 static bool	is_lines_all_same_length(t_map *map)
 {
-	char	*line;
-	int		fd;
+	int	line_length;
+	int	i;
+	int	j;
 
-	fd = open(map->map_name, O_RDONLY);
-	if (fd < 0)
-		exit(EXIT_FAILURE);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-		{
-			close(fd);
-			break ;
-		}
-		if (get_line_width(line) != map->width)
-		{
-			ft_printf_fd(2, RED "Error. Incorrect map format\n" RESET);
-			return (free(line), false);
-		}
-		free(line);
-	}
-	return (close(fd), true);
+
+	i = 0;
+	j = 0;
+	/*printf("first line: %s\n", map->array[3]);*/
+	line_length = get_line_width(map->array[0]);
+	printf("%d\n", line_length);
+	return (false);
 }
 
 void	map_check(t_map *map)
@@ -107,7 +100,8 @@ void	map_check(t_map *map)
 	if (is_good_inside_chars(map) == false)
 		return (ft_printf_fd(2, "Map chars error\n"),
 				exit(EXIT_FAILURE));
-	if (map->c_flag != 1 || map->e_flag != 1 || map->p_flag != 1)
+	if (map->c_flag < 1 || map->e_flag != 1 || map->p_flag != 1)
 		return (ft_printf_fd(2, "Map chars error\n"),
 				exit(EXIT_FAILURE));
+	printf("GOOOOOOD MAP\n");
 }

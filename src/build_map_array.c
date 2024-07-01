@@ -6,49 +6,51 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 17:35:31 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/01 13:46:21 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:43:37 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	build_map_line(t_map *map, char *line)
-{
-	int	i;
+/*static void	build_map_line(t_map *map, char *line)*/
+/*{*/
+	/*int	i;*/
 
-	i = 0;
-	printf("blue\n");
-	while (line[i] && i < map->width)
-	{
-		map->array[map->y][i] = line[i];
-		i++;
-	}
-}
+	/*i = 0;*/
+	/*printf("blue\n");*/
+	/*while (line[i] && i < map->width)*/
+	/*{*/
+		/*map->array[map->y][i] = line[i];*/
+		/*i++;*/
+	/*}*/
+/*}*/
 
 void	build_map_array(t_map *map)
 {
 	int		fd;
 	char	*line;
-	char	**char_map;
+	char	*total_line;
+	char	*tmp;
 
 	fd = open(map->map_name, O_RDONLY);
-	map->array = malloc(sizeof(char *) * map->height);
-	if (map->array == NULL)
-		(ft_printf_fd(2, "Allocation error.\n"), exit(EXIT_FAILURE));
-	char_map = NULL;
-	while (map->y < map->height)
+	total_line = ft_strdup("");
+	line = get_next_line(fd);
+	if (line == NULL)
+		return (ft_printf_fd(2, RED "Empty file.\n" RESET),
+			   exit(EXIT_FAILURE));
+	while (line)
 	{
-		map->array[map->y] = malloc(sizeof(char) * map->width);
-		if (map->array[map->y] == NULL)
-			(ft_printf_fd(2, "Allocation error.\n"), exit(EXIT_FAILURE));
-		line = get_next_line(fd);
-		/*build_map_line(map, char_map, line);*/
-		map->x = 0;
-		build_map_line(map, line);
-		/*char_map = ft_split(line, '\n');*/
+		tmp = ft_strjoin(total_line, line);
+		/*free(total_line);*/
+		total_line = tmp;
+		printf("%s\n", total_line);
 		free(line);
-		map->y++;
-		/*free_split(char_map);*/
+		line = get_next_line(fd);
 	}
+	free(line);
+	free(tmp);
 	close(fd);
+	map->array = ft_split(total_line, '\n');
+	printf("bla: %s\n", map->array[0]);
+	/*print_map(map);*/
 }
