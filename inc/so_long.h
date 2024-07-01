@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/26 14:42:59 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:55:56 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,12 @@ typedef struct s_line_data
 
 bool	is_ber_file(char *filename);
 int		count_width(const char *s, char c);
-bool	is_lines_all_same_length(t_map *map);
 void	build_map_array(t_map *map);
 void	free_map_array(t_map *map);
 void	get_map_size(t_map *map);
 void	free_split(char **arr);
 void	hook(void *param);
 void	draw_background(mlx_image_t *img);
-bool	is_good_chars(t_map *map);
+void	map_check(t_map *map);
 
 #endif

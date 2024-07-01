@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:38:04 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/26 14:58:54 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:56:56 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,6 @@ void	get_map_size(t_map *map)
 	if (map->width <= 1 || map->height <= 1)
 	{
 		ft_printf_fd(2, RED "Map too small.\n" RESET);
-		exit(EXIT_FAILURE);
-	}
-	if (is_lines_all_same_length(map) == false)
-	{
-		ft_printf_fd(2, RED "Invalid map.\nNot a rectangle.\n" RESET);
-		exit(EXIT_FAILURE);
-	}
-	if (is_good_chars(map) == false)
-	{
-		ft_printf_fd(2, RED "Invalid map.\nChars not good.\n" RESET);
 		exit(EXIT_FAILURE);
 	}
 	else
