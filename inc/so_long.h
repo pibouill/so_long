@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/01 12:55:56 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:03:56 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,9 @@ void	free_split(char **arr);
 void	hook(void *param);
 void	draw_background(mlx_image_t *img);
 void	map_check(t_map *map);
+
+
+// error utils
+void	error_free_exit(char *error_mess, t_map *map);
 
 #endif
