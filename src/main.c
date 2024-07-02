@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:27:37 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/01 17:12:15 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:14:59 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	init_struct(t_map *map)
 	map->height = 0;
 	map->x = 0;
 	map->y = 0;
-	map->c_flag = 0; 
-	map->p_flag = 0; 
-	map->e_flag = 0; 
+	map->c_flag = 0;
+	map->p_flag = 0;
+	map->e_flag = 0;
 }
 
 int	main(int ac, char **av)
@@ -29,7 +29,6 @@ int	main(int ac, char **av)
 	t_map	map;
 	/*mlx_t	*mlx;*/
 	/*mlx_image_t	*img;*/
-
 
 	/*args_check(ac, av);*/
 	if (ac != 2)

@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:45:03 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/02 15:09:50 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:19:57 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ static bool	is_lines_all_same_length(t_map *map)
 {
 	int	line_length;
 	int	j;
-
 
 	j = 1;
 	line_length = get_line_width(map->array[0]);

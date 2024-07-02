@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:38:04 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/01 12:56:56 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:48:41 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	get_map_height(char *filename)
 			close(fd);
 			return (height);
 		}
-		/*printf("map read-> %s", line);*/
 		free(line);
 		height++;
 	}
@@ -58,7 +57,9 @@ int	get_map_width(char *filename)
 	if (line == NULL)
 	{
 		close(fd);
-		return (width);
+		ft_printf_fd(2, RED "Empty map\n" RESET);
+		exit(EXIT_FAILURE);
+
 	}
 	while (line[width])
 		width++;
@@ -73,7 +74,7 @@ void	get_map_size(t_map *map)
 	map->height = get_map_height(map->map_name);
 	printf("%d\n", map->width);
 	printf("%d\n", map->height);
-	if (map->width <= 1 || map->height <= 1)
+	if (map->width < 5 || map->height < 3)
 	{
 		ft_printf_fd(2, RED "Map too small.\n" RESET);
 		exit(EXIT_FAILURE);
