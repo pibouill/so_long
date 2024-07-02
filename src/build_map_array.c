@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 17:35:31 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/01 17:43:37 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:03:49 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,30 @@
 	/*}*/
 /*}*/
 
+void	print_map(t_map *map)
+{
+	int	i = 0;
+	int	j = 0;
+
+	while (j < map->height)
+	{
+		i = 0;
+		while (i < map->width)
+		{
+			printf("[%c]", map->array[j][i]);
+			i++;
+		}
+		printf("\n");
+		j++;
+	}
+}
+
 void	build_map_array(t_map *map)
 {
 	int		fd;
 	char	*line;
 	char	*total_line;
-	char	*tmp;
+	/*char	*tmp;*/
 
 	fd = open(map->map_name, O_RDONLY);
 	total_line = ft_strdup("");
@@ -40,17 +58,19 @@ void	build_map_array(t_map *map)
 			   exit(EXIT_FAILURE));
 	while (line)
 	{
-		tmp = ft_strjoin(total_line, line);
+		/*tmp = ft_strjoin(total_line, line);*/
+		total_line = ft_strjoin(total_line, line);
 		/*free(total_line);*/
-		total_line = tmp;
-		printf("%s\n", total_line);
+		/*total_line = tmp;*/
 		free(line);
 		line = get_next_line(fd);
 	}
 	free(line);
-	free(tmp);
+	/*free(tmp);*/
 	close(fd);
+	if (map->array)
+		free_map_array(map);
 	map->array = ft_split(total_line, '\n');
-	printf("bla: %s\n", map->array[0]);
-	/*print_map(map);*/
+	free(total_line);
+	print_map(map);
 }
