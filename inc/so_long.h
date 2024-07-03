@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/02 15:03:56 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:01:16 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ void	map_check(t_map *map);
 
 // error utils
 void	error_free_exit(char *error_mess, t_map *map);
+void	empty_line_free_exit(char *line, char *tot_line, char *mess);
 
 #endif
