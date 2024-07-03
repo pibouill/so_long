@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 14:01:16 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:55:09 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@
 # define PURPLE	"\e[38;5;93m"
 # define RESET	"\e[0m"*/
 
-//typedef struct	s_point
-//{
-	//int	x;
-	//int	y;
-//}				t_point;
 
 typedef struct s_map
 {
@@ -58,16 +53,10 @@ typedef struct s_map
 	int		c_flag;
 	int		p_flag;
 	int		e_flag;
+	int		exit_i;
+	int		exit_j;
+	int		coin_amount;
 }				t_map;
-
-
-typedef struct s_line_data
-{
-	int	dx;
-	int	dy;
-	int	inc_x;
-	int	inc_y;
-}				t_line_data;
 
 bool	is_ber_file(char *filename);
 int		count_width(const char *s, char c);
