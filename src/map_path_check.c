@@ -6,17 +6,35 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 13:19:11 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 14:55:07 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:51:30 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	do_flood_fill(t_map *map, int player_i, int player_j, bool **visited)
+static bool	is_valid_move(t_map *map, bool **visited, int j, int i)
 {
+	if (map->array[j][i] == '1')
+		return (false);
+	if (visited[j][i] == false)
+		return (true);
+	return (false);
 }
 
-void	get_exit_pos_and_c_count(t_map *map)
+static void	do_flood_fill(t_map *map, int i, int j, bool **visited)
+{
+	if ((is_valid_move(map, visited, j, i) == false) || (visited[j][i] == true))
+		return ;
+	if (map->array[j][i] == 'C')
+		map->coin_check++;
+	visited[j][i] = true;
+	do_flood_fill(map, i - 1, j, visited);
+	do_flood_fill(map, i + 1, j, visited);
+	do_flood_fill(map, i, j - 1, visited);
+	do_flood_fill(map, i, j + 1, visited);
+}
+
+static void	get_exit_pos_and_c_count(t_map *map)
 {
 	int	i;
 	int	j;
@@ -40,7 +58,7 @@ void	get_exit_pos_and_c_count(t_map *map)
 	}
 }
 
-void	get_player_pos(t_map *map, int row, int *player_i, int *player_j)
+static void	get_player_pos(t_map *map, int row, int *player_i, int *player_j)
 {
 	int	i;
 
@@ -50,35 +68,37 @@ void	get_player_pos(t_map *map, int row, int *player_i, int *player_j)
 		if (map->array[row][i] == 'P')
 		{
 			*player_i = i;
-			*player_j = j;
+			*player_j = row;
 			break ;
 		}
 		i++;
 	}
 }
 
-void	map_path_check(t_map *map)
+bool	is_valid_path(t_map *map)
 {
 	int		j;
 	int		player_j;
 	int		player_i;
 	bool	**visited;
+	bool	valid_path;
 
+	valid_path = false;
 	visited = ft_calloc(map->height, sizeof(bool *));
 	j = 0;
 	while (j < map->height)
 		visited[j++] = ft_calloc(map->width, sizeof(bool *));
-	j = 0;
-	while (map->array[j])
-	{
-		map->p_pos = get_player_pos(map, j, &player_i, &player_j);
-		j++;
-	}
+	j = -1;
+	while (map->array[++j])
+		get_player_pos(map, j, &player_i, &player_j);
 	get_exit_pos_and_c_count(map);
 	do_flood_fill(map, player_i, player_j, visited);
-
-
-
-
-
+	if (visited[player_j][player_i] && visited[map->exit_j][map->exit_i])
+		valid_path = true;
+	free_visited(visited, map->height);
+	if (map->coin_amount != map->coin_check || valid_path == false)
+		return (ft_printf_fd(2, RED "Invalid path or C's unreachable\n" RESET),
+			false);
+	printf(GREEN"valid map gg\n"RESET);
+	return (true);
 }

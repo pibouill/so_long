@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:27:37 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 14:28:17 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:04:48 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	init_struct(t_map *map)
 	map->c_flag = 0;
 	map->p_flag = 0;
 	map->e_flag = 0;
-	map->p_pos = NULL;
-	map->e_pos = NULL;
+	map->exit_i = 0;
+	map->exit_j = 0;
+	map->coin_amount = 0;
+	map->coin_check = 0;
 }
 
 int	main(int ac, char **av)
@@ -47,7 +49,7 @@ int	main(int ac, char **av)
 	printf("\nmap height: %d\n", map.height);
 	printf("map width: %d\n", map.width);
 	map_check(&map);
-	map_path_check(&map);
+	is_valid_path(&map);
 	/*mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);*/
 	/*if (mlx == NULL)*/
 		/*exit(EXIT_FAILURE);*/

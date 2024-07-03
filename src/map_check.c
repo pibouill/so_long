@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:45:03 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 13:47:09 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:54:02 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ static bool	is_good_top_and_bot_walls(t_map *map)
 	i = 0;
 	while (i < map->width)
 	{
-		if (map->array[0][i++] != '1')
+		if (map->array[0][i] != '1' || map->array[map->height - 1][i] != '1')
 			return (false);
+		i++;
 	}
 	i = 0;
-	while (i < map->width)
+	while (i < map->height)
 	{
-		if (map->array[map->height - 1][i++] != '1')
+		if (map->array[i][0] != '1' || map->array[i][map->width - 1] != '1')
 			return (false);
+		i++;
 	}
 	return (true);
 }
@@ -58,13 +60,13 @@ static bool	is_good_inside_chars(t_map *map)
 	i = 0;
 	while (++j < map->height)
 	{
-		if (map->array[j][0] != '1')
-			return (false);
-		if (map->array[j][map->width - 1] != '1')
-			return (false);
 		i = 0;
 		while (i < map->width)
 		{
+			if (map->array[j][i] != '0' &&
+					map->array[j][i] != '1' && map->array[j][i] != 'C'
+					&& map->array[j][i] != 'E' && map->array[j][i] != 'P')
+				return (error_free_exit("invalid map char", map), false);
 			if (map->array[j][i] == 'C')
 				map->c_flag += 1;
 			if (map->array[j][i] == 'P')

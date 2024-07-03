@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 14:55:09 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:10:34 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,26 @@ typedef struct s_map
 	int		exit_i;
 	int		exit_j;
 	int		coin_amount;
+	int		coin_check;
 }				t_map;
 
 bool	is_ber_file(char *filename);
 int		count_width(const char *s, char c);
 void	build_map_array(t_map *map);
-void	free_map_array(t_map *map);
 void	get_map_size(t_map *map);
-void	free_split(char **arr);
 void	hook(void *param);
 void	draw_background(mlx_image_t *img);
 void	map_check(t_map *map);
+bool	is_valid_path(t_map *map);
 
 
 // error utils
 void	error_free_exit(char *error_mess, t_map *map);
 void	empty_line_free_exit(char *line, char *tot_line, char *mess);
+
+// free utils
+void	free_split(char **arr);
+void	free_map_array(t_map *map);
+void	free_visited(bool **visited, int map_height);
 
 #endif

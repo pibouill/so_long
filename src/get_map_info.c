@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:38:04 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 13:57:20 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:51:49 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	get_map_width(char *filename)
 		close(fd);
 		ft_printf_fd(2, RED "Empty map\n" RESET);
 		exit(EXIT_FAILURE);
-
 	}
 	while (line[width])
 		width++;
