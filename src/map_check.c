@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:45:03 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 16:54:02 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 17:08:23 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static bool	is_good_inside_chars(t_map *map)
 			if (map->array[j][i] != '0' &&
 					map->array[j][i] != '1' && map->array[j][i] != 'C'
 					&& map->array[j][i] != 'E' && map->array[j][i] != 'P')
-				return (error_free_exit("invalid map char", map), false);
+				return (false);
 			if (map->array[j][i] == 'C')
 				map->c_flag += 1;
 			if (map->array[j][i] == 'P')
@@ -89,7 +89,7 @@ static bool	is_lines_all_same_length(t_map *map)
 	while (j < map->height)
 	{
 		if (line_length == 0)
-			return (error_free_exit("Empty line", map), false);
+			return (error_free_exit("Error\nEmpty line", map), false);
 		if (line_length != get_line_width(map->array[j], map))
 			return (false);
 		j++;
@@ -100,16 +100,16 @@ static bool	is_lines_all_same_length(t_map *map)
 void	map_check(t_map *map)
 {
 	if (is_lines_all_same_length(map) == false)
-		return (error_free_exit("Map format issue", map));
+		return (error_free_exit("Error\nMap format issue", map));
 	if (is_good_top_and_bot_walls(map) == false)
-		return (error_free_exit("Invalid top and/or bot walls", map));
+		return (error_free_exit("Error\nInvalid top and/or bot walls", map));
 	if (is_good_inside_chars(map) == false)
-		return (error_free_exit("Map chars error", map));
+		return (error_free_exit("Error\nInvalid map char(s)", map));
 	if (map->c_flag < 1)
-		return (error_free_exit("Not enough collectibles 'C'", map));
+		return (error_free_exit("Error\nNot enough collectibles 'C'", map));
 	if (map->e_flag != 1)
-		return (error_free_exit("Invalid number of E's", map));
+		return (error_free_exit("Error\nInvalid number of E's", map));
 	if (map->p_flag != 1)
-		return (error_free_exit("Invalid number of P's", map));
+		return (error_free_exit("Error\nInvalid number of P's", map));
 	printf("GOOOOOOD MAP\n");
 }

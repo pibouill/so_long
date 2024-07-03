@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:38:04 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 16:51:49 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/03 17:08:44 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	get_map_size(t_map *map)
 	printf("%d\n", map->height);
 	if (map->width < 5 || map->height < 3)
 	{
-		ft_printf_fd(2, RED "Map too small.\n" RESET);
+		ft_printf_fd(2, RED "Error\nMap too small.\n" RESET);
 		exit(EXIT_FAILURE);
 	}
 	else
