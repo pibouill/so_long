@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/04 13:43:29 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:49:39 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct	s_asset
 
 typedef struct s_map
 {
+	mlx_t	*mlx;
 	char	**array;
 	char	*map_name;
 	int		width;
@@ -65,6 +66,8 @@ typedef struct s_map
 	int		exit_j;
 	int		coin_amount;
 	int		coin_check;
+	int		screen_w;
+	int		screen_h;
 	t_asset	asset;
 
 }				t_map;
@@ -78,6 +81,7 @@ void	draw_background(mlx_image_t *img);
 void	map_check(t_map *map);
 bool	is_valid_path(t_map *map);
 
+void	img_to_map(t_map *map);
 
 // error utils
 void	error_free_exit(char *error_mess, t_map *map);

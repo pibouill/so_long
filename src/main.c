@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:27:37 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/04 13:50:02 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:51:24 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ void	init_struct(t_map *map)
 int	main(int ac, char **av)
 {
 	t_map	map;
-	mlx_t	*mlx;
-	xpm_t	*xpm;
-	/*mlx_image_t	*img;*/
-
 
 	if (ac != 2)
 	{
@@ -51,26 +47,17 @@ int	main(int ac, char **av)
 	printf("map width: %d\n", map.width);
 	map_check(&map);
 	is_valid_path(&map);
-	mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);
-	if (mlx == NULL)
+	printf("coin_amount: %d\n", map.coin_amount);
+	map.screen_w = map.width * 64;
+	map.screen_h = map.height * 64;
+	map.mlx = mlx_init(map.width, map.height, "so_long", true);
+	if (map.mlx == NULL)
 		exit(EXIT_FAILURE);
-	xpm = mlx_load_xpm42("./assets/xpm42/wall.xpm42");
-	if (!xpm)
-		exit(EXIT_FAILURE);
-	mlx_image_t	*img = mlx_texture_to_image(mlx, &xpm->texture);
-	if (!img)
-		exit(EXIT_FAILURE);
-	if (mlx_image_to_window(mlx, img, 0, 0) < 0)
-		exit(EXIT_FAILURE);
-
-
+	img_to_map(&map);
 	/*img = mlx_new_image(mlx, WINDOW_WIDTH, WINDOW_HEIGHT);*/
-
 	/*mlx_image_to_window(mlx, img, 0, 0);*/
-	mlx_loop(mlx);
-	/*mlx_delete_image(mlx, img);*/
-	/*mlx_delete_xpm42(xpm);*/
-	/*mlx_terminate(mlx);*/
+	mlx_loop(map.mlx);
 	free_map_array(&map);
+	mlx_terminate(map.mlx);
 	return (0);
 }
