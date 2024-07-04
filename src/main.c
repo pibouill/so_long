@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:27:37 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 16:04:48 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/04 12:16:24 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	init_struct(t_map *map)
 int	main(int ac, char **av)
 {
 	t_map	map;
-	/*mlx_t	*mlx;*/
+	mlx_t	*mlx;
 	/*mlx_image_t	*img;*/
 
-	/*args_check(ac, av);*/
+
 	if (ac != 2)
 	{
 		ft_printf("Usage: <exec> <map>.ber\n");
@@ -50,15 +50,15 @@ int	main(int ac, char **av)
 	printf("map width: %d\n", map.width);
 	map_check(&map);
 	is_valid_path(&map);
-	/*mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);*/
-	/*if (mlx == NULL)*/
-		/*exit(EXIT_FAILURE);*/
+	mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);
+	if (mlx == NULL)
+		exit(EXIT_FAILURE);
 	/*img = mlx_new_image(mlx, WINDOW_WIDTH, WINDOW_HEIGHT);*/
 	/*mlx_image_to_window(mlx, img, 0, 0);*/
-	/*draw_background(img);*/
-	/*mlx_loop_hook(mlx, hook, mlx);*/
-	/*mlx_loop(mlx);*/
-	/*mlx_terminate(mlx);*/
+	mlx_loop_hook(mlx, hook, mlx);
+	mlx_loop(mlx);
+	mlx_terminate(mlx);
+	free(mlx);
 	free_map_array(&map);
 	return (0);
 }
