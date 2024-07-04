@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:45:03 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 17:08:23 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:47:06 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,4 @@ void	map_check(t_map *map)
 		return (error_free_exit("Error\nInvalid number of E's", map));
 	if (map->p_flag != 1)
 		return (error_free_exit("Error\nInvalid number of P's", map));
-	printf("GOOOOOOD MAP\n");
 }
