@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/04 11:57:32 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:43:29 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@
 # define PURPLE	"\e[38;5;93m"
 # define RESET	"\e[0m"*/
 
+typedef struct	s_asset
+{
+	mlx_image_t	*ground;
+	mlx_image_t	*wall;
+	mlx_image_t	*player;
+	mlx_image_t	*door;
+	mlx_image_t	*coin;
+}			t_asset;
 
 typedef struct s_map
 {
@@ -57,6 +65,8 @@ typedef struct s_map
 	int		exit_j;
 	int		coin_amount;
 	int		coin_check;
+	t_asset	asset;
+
 }				t_map;
 
 bool	is_ber_file(char *filename);

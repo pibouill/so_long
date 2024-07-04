@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:27:37 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/04 12:16:24 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:50:02 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ int	main(int ac, char **av)
 {
 	t_map	map;
 	mlx_t	*mlx;
+	xpm_t	*xpm;
 	/*mlx_image_t	*img;*/
 
 
 	if (ac != 2)
 	{
-		ft_printf("Usage: <exec> <map>.ber\n");
+		ft_printf("Usage: ./so_long (map).ber\n");
 		exit(EXIT_FAILURE);
 	}
 	map.map_name = av[1];
@@ -53,12 +54,23 @@ int	main(int ac, char **av)
 	mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);
 	if (mlx == NULL)
 		exit(EXIT_FAILURE);
+	xpm = mlx_load_xpm42("./assets/xpm42/wall.xpm42");
+	if (!xpm)
+		exit(EXIT_FAILURE);
+	mlx_image_t	*img = mlx_texture_to_image(mlx, &xpm->texture);
+	if (!img)
+		exit(EXIT_FAILURE);
+	if (mlx_image_to_window(mlx, img, 0, 0) < 0)
+		exit(EXIT_FAILURE);
+
+
 	/*img = mlx_new_image(mlx, WINDOW_WIDTH, WINDOW_HEIGHT);*/
+
 	/*mlx_image_to_window(mlx, img, 0, 0);*/
-	mlx_loop_hook(mlx, hook, mlx);
 	mlx_loop(mlx);
-	mlx_terminate(mlx);
-	free(mlx);
+	/*mlx_delete_image(mlx, img);*/
+	/*mlx_delete_xpm42(xpm);*/
+	/*mlx_terminate(mlx);*/
 	free_map_array(&map);
 	return (0);
 }
