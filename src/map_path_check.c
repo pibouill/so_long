@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 13:19:11 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 17:09:55 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/05 15:12:44 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ bool	is_valid_path(t_map *map)
 		valid_path = true;
 	free_visited(visited, map->height);
 	if (map->coin_amount != map->coin_check || valid_path == false)
-		return (ft_printf_fd(2, RED "Error\nInvalid path" RESET),
-			false);
+		return (false);
 	printf(GREEN"valid map gg\n"RESET);
 	return (true);
 }

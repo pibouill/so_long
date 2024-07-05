@@ -1,16 +1,35 @@
 !XPM42
-6 9 5 1 c
-  #2A1509FF
+18 27 6 1 c
+  #00000000
 . #623E19FF
-X #8A6D37FF
-o #FFD967FF
-O #FFFFFFFF
-OO..OO
-O.OO O
-.OOoX 
-.Oo X 
-.O  X 
-.O .X 
-.OooX 
-O.oo O
-OO  OO
+X #FFFFFFFF
+o #2A1509FF
+O #FFD967FF
++ #8A6D37FF
+      ......      
+      ......      
+      ......      
+   ...XXXXXXooo   
+   ...XXXXXXooo   
+   ...XXXXXXooo   
+...XXXXXXOOO+++ooo
+...XXXXXXOOO+++ooo
+...XXXXXXOOO+++ooo
+...XXXOOOooo+++ooo
+...XXXOOOooo+++ooo
+...XXXOOOooo+++ooo
+...XXXoooooo+++ooo
+...XXXoooooo+++ooo
+...XXXoooooo+++ooo
+...XXXooo...+++ooo
+...XXXooo...+++ooo
+...XXXooo...+++ooo
+...XXXOOOOOO+++ooo
+...XXXOOOOOO+++ooo
+...XXXOOOOOO+++ooo
+   ...OOOOOOooo   
+   ...OOOOOOooo   
+   ...OOOOOOooo   
+      oooooo      
+      oooooo      
+      oooooo      

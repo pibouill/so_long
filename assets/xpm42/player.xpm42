@@ -1,46 +1,76 @@
 !XPM42
-19 30 14 1 c
-  #141412FF
+38 60 14 1 c
+  #00000000
 . #252716FF
-X #331E32FF
-o #373A20FF
-O #47280DFF
-+ #5F5625FF
-@ #1C3845FF
-# #5F2E5CFF
-$ #B56C30FF
-% #928230FF
-& #F09A53FF
-* #932D8BFF
-= #0C98D6FF
-- #FFFFFFFF
--------.......-----
------..+%%%%++ ----
-----.+%%%%%%%%+ ---
---- ++%%%%%%%%%+ --
--- ooo+%%%+  +%% --
--- oooo+%     +% --
-- ooooo%       % --
-- oooo+%       % --
- ooooo%   =  = + --
- o+++o%X  @  @ + --
-  o+++%X       o --
--   oo+X#X     X --
-- oooo++###****# --
--.%%%oo+%##****#  -
-.%%%%%++%%%%++%%  -
-.%%%%%+++%%%%%%%  -
-.+%%%+ooo%%%%%%%  -
--.... ooo+%%%%%+ --
----   oooo      ---
-----OO$O$$$&&$$ ---
-----OO$O$$&&&&$ ---
----.+++++++&&$oo --
----.%%%%%%+  +++ --
---.+%%%%%%o  ++++ -
---.%%%%%%o   ++++ -
--  %%%%%% -   +++ -
--         --      -
-- $$$  ------ OOO -
-  OOO -------      
- &&&  ------- O$$$ 
+X #5F5625FF
+o #928230FF
+O #141412FF
++ #373A20FF
+@ #0C98D6FF
+# #331E32FF
+$ #1C3845FF
+% #5F2E5CFF
+& #932D8BFF
+* #47280DFF
+= #B56C30FF
+- #F09A53FF
+              ..............          
+              ..............          
+          ....XXooooooooXXXXOO        
+          ....XXooooooooXXXXOO        
+        ..XXooooooooooooooooXXOO      
+        ..XXooooooooooooooooXXOO      
+      OOXXXXooooooooooooooooooXXOO    
+      OOXXXXooooooooooooooooooXXOO    
+    OO++++++XXooooooXXOOOOXXooooOO    
+    OO++++++XXooooooXXOOOOXXooooOO    
+    OO++++++++XXooOOOOOOOOOOXXooOO    
+    OO++++++++XXooOOOOOOOOOOXXooOO    
+  OO++++++++++ooOOOOOOOOOOOOOOooOO    
+  OO++++++++++ooOOOOOOOOOOOOOOooOO    
+  OO++++++++XXooOOOOOOOOOOOOOOooOO    
+  OO++++++++XXooOOOOOOOOOOOOOOooOO    
+OO++++++++++ooOOOOOO@@OOOO@@OOXXOO    
+OO++++++++++ooOOOOOO@@OOOO@@OOXXOO    
+OO++XXXXXX++oo##OOOO$$OOOO$$OOXXOO    
+OO++XXXXXX++oo##OOOO$$OOOO$$OOXXOO    
+OOOO++XXXXXXoo##OOOOOOOOOOOOOO++OO    
+OOOO++XXXXXXoo##OOOOOOOOOOOOOO++OO    
+  OOOOOO++++XX##%%##OOOOOOOOOO##OO    
+  OOOOOO++++XX##%%##OOOOOOOOOO##OO    
+  OO++++++++XXXX%%%%%%&&&&&&&&%%OO    
+  OO++++++++XXXX%%%%%%&&&&&&&&%%OO    
+  ..oooooo++++XXoo%%%%&&&&&&&&%%OOOO  
+  ..oooooo++++XXoo%%%%&&&&&&&&%%OOOO  
+..ooooooooooXXXXooooooooXXXXooooOOOO  
+..ooooooooooXXXXooooooooXXXXooooOOOO  
+..ooooooooooXXXXXXooooooooooooooOOOO  
+..ooooooooooXXXXXXooooooooooooooOOOO  
+..XXooooooXX++++++ooooooooooooooOOOO  
+..XXooooooXX++++++ooooooooooooooOOOO  
+  ........OO++++++XXooooooooooXXOO    
+  ........OO++++++XXooooooooooXXOO    
+      OOOOOO++++++++OOOOOOOOOOOO      
+      OOOOOO++++++++OOOOOOOOOOOO      
+        ****==**======----====OO      
+        ****==**======----====OO      
+        ****==**====--------==OO      
+        ****==**====--------==OO      
+      ..XXXXXXXXXXXXXX----==++++OO    
+      ..XXXXXXXXXXXXXX----==++++OO    
+      ..ooooooooooooXXOOOOXXXXXXOO    
+      ..ooooooooooooXXOOOOXXXXXXOO    
+    ..XXoooooooooooo++OOOOXXXXXXXXOO  
+    ..XXoooooooooooo++OOOOXXXXXXXXOO  
+    ..oooooooooooo++OOOOOOXXXXXXXXOO  
+    ..oooooooooooo++OOOOOOXXXXXXXXOO  
+  OOOOooooooooooooOO  OOOOOOXXXXXXOO  
+  OOOOooooooooooooOO  OOOOOOXXXXXXOO  
+  OOOOOOOOOOOOOOOOOO    OOOOOOOOOOOO  
+  OOOOOOOOOOOOOOOOOO    OOOOOOOOOOOO  
+  OO======OOOO            OO******OO  
+  OO======OOOO            OO******OO  
+OOOO******OO              OOOOOOOOOOOO
+OOOO******OO              OOOOOOOOOOOO
+OO------OOOO              OO**======OO
+OO------OOOO              OO**======OO

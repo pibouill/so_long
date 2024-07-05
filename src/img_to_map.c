@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:49:08 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/05 14:04:06 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/05 15:16:18 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ static void	img_to_window(t_map *map, int x, int y)
 		mlx_image_to_window(map->mlx, map->asset.ground, x * UP_RATIO, y * UP_RATIO);
 	if (x == 0 && y == 0)
 		mlx_image_to_window(map->mlx, map->asset.ground, x * UP_RATIO, y * UP_RATIO);
-	if (map->array[y][x] == 'E')
-		mlx_image_to_window(map->mlx, map->asset.door, x * UP_RATIO, y * UP_RATIO);
-	else if (map->array[y][x] == '1')
+	if (map->array[y][x] == '1')
 		mlx_image_to_window(map->mlx, map->asset.wall, x * UP_RATIO, y * UP_RATIO);
+	else if (map->array[y][x] == 'E')
+		mlx_image_to_window(map->mlx, map->asset.door, x * UP_RATIO, y * UP_RATIO);
 	else if (map->array[y][x] == 'P')
 		mlx_image_to_window(map->mlx, map->asset.player, (x * UP_RATIO), (y * UP_RATIO));
 	else if (map->array[y][x] == 'C')
@@ -64,7 +64,7 @@ static void	load_assets(t_map *map)
 {
 	map->asset.ground = asset_to_img(map->mlx, "./assets/xpm42/ground.xpm42");
 	map->asset.wall = asset_to_img(map->mlx, "./assets/xpm42/wall.xpm42");
-	map->asset.player = asset_to_img(map->mlx, "./assets/xpm42/player.xpm42");
+	map->asset.player = asset_to_img(map->mlx, "./assets/xpm42/player_125.xpm42");
 	map->asset.coin = asset_to_img(map->mlx, "./assets/xpm42/coin.xpm42");
 	if (map->coin_amount == 0)
 		map->asset.door = asset_to_img(map->mlx, "./assets/xpm42/open_door.xpm42");
