@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/05 15:10:00 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:36:39 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ typedef struct s_map
 	int		e_flag;
 	int		exit_i;
 	int		exit_j;
+	int		player_i;
+	int		player_j;
 	int		coin_amount;
 	int		coin_check;
 	int		screen_w;

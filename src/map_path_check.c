@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 13:19:11 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/05 15:12:44 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:37:08 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ static void	get_player_pos(t_map *map, int row, int *player_i, int *player_j)
 		{
 			*player_i = i;
 			*player_j = row;
+			map->player_i = i;
+			map->player_j = row;
 			break ;
 		}
 		i++;
