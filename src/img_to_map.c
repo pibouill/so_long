@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:49:08 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/05 15:19:28 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/05 15:21:03 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	img_to_window(t_map *map, int x, int y)
 	else if (map->array[y][x] == 'E')
 		mlx_image_to_window(map->mlx, map->asset.door, x * UP_RATIO, y * UP_RATIO);
 	else if (map->array[y][x] == 'P')
-		mlx_image_to_window(map->mlx, map->asset.player, (x * UP_RATIO), (y * UP_RATIO));
+		mlx_image_to_window(map->mlx, map->asset.player, (x * UP_RATIO) + 10, (y * UP_RATIO) + 2);
 	else if (map->array[y][x] == 'C')
 		mlx_image_to_window(map->mlx, map->asset.coin, (x * UP_RATIO) + 13, (y * UP_RATIO) + 10);
 }
