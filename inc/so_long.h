@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/04 15:49:39 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:01:45 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 # include <MLX42.h>
 # include <libft.h>
 
-# define WINDOW_WIDTH 1000
+# define WINDOW_WIDTH 1080
 # define WINDOW_HEIGHT 720
+# define UP_RATIO 42
 
 # define RED   "\x1B[31m"
 # define GREEN   "\x1B[32m"

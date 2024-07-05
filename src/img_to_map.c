@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:49:08 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/04 15:36:34 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:04:06 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ static void	open_check(char *filename)
 
 static void	img_to_window(t_map *map, int x, int y)
 {
-	if (x == 0 && y == 0)
-		mlx_image_to_window(map->mlx, map->asset.ground, x * 64, y * 64);
 	if (x != 0 || y != 0)
-		mlx_image_to_window(map->mlx, map->asset.ground, x * 64, y * 64);
+		mlx_image_to_window(map->mlx, map->asset.ground, x * UP_RATIO, y * UP_RATIO);
+	if (x == 0 && y == 0)
+		mlx_image_to_window(map->mlx, map->asset.ground, x * UP_RATIO, y * UP_RATIO);
 	if (map->array[y][x] == 'E')
-		mlx_image_to_window(map->mlx, map->asset.door, x * 64, y * 64);
+		mlx_image_to_window(map->mlx, map->asset.door, x * UP_RATIO, y * UP_RATIO);
 	else if (map->array[y][x] == '1')
-		mlx_image_to_window(map->mlx, map->asset.wall, x * 64, y * 64);
+		mlx_image_to_window(map->mlx, map->asset.wall, x * UP_RATIO, y * UP_RATIO);
 	else if (map->array[y][x] == 'P')
-		mlx_image_to_window(map->mlx, map->asset.player, x * 64, y * 64);
+		mlx_image_to_window(map->mlx, map->asset.player, (x * UP_RATIO), (y * UP_RATIO));
 	else if (map->array[y][x] == 'C')
-		mlx_image_to_window(map->mlx, map->asset.coin, x * 64, y * 64);
+		mlx_image_to_window(map->mlx, map->asset.coin, (x * UP_RATIO), (y * UP_RATIO));
 }
 
 static mlx_image_t	*asset_to_img(mlx_t *mlx, char *path_to_img)
@@ -52,7 +52,6 @@ static mlx_image_t	*asset_to_img(mlx_t *mlx, char *path_to_img)
 	xpm = mlx_load_xpm42(path_to_img);
 	if (!xpm)
 		ft_printf_fd(2, "Error loading xpm\n");
-	printf("ouais\n");
 	texture = xpm->texture;
 	img = mlx_texture_to_image(mlx, &texture);
 	if (!img)
@@ -71,6 +70,7 @@ static void	load_assets(t_map *map)
 		map->asset.door = asset_to_img(map->mlx, "./assets/xpm42/open_door.xpm42");
 	else
 		map->asset.door = asset_to_img(map->mlx, "./assets/xpm42/close_door.xpm42");
+	printf("passed\n");
 }
 
 void	img_to_map(t_map *map)
