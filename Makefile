@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/07/04 15:07:16 by pibouill         ###   ########.fr        #
+#    Updated: 2024/07/06 14:03:55 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,17 +40,21 @@ endif
 ################################################################################
 ## COLORS
 
-#GREEN       = \033[0;92m
-# YELLOW      = \033[0;93m
-# BLUE        = \033[0;94m
-# RED         = \033[0;91m
-GREEN		:= \e[38;5;118m
-YELLOW		:= \e[38;5;226m
-BLUE		:= \e[38;5;27m
-RED			:= \e[38;5;196m
-ORANGE		:= \e[38;5;208m
-END_COLOR	:= \e[0m
-
+ifeq ($(UNAME), Linux)
+	GREEN		:= \e[38;5;118m
+	YELLOW		:= \e[38;5;226m
+	BLUE		:= \e[38;5;27m
+	RED			:= \e[38;5;196m
+	ORANGE		:= \e[38;5;208m
+	END_COLOR	:= \e[0m
+endif
+ifeq ($(UNAME), Darwin)
+	GREEN       := \033[0;92m
+	YELLOW      := \033[0;93m
+	BLUE        := \033[0;94m
+	RED         := \033[0;91m
+	END_COLOR   := \033[0m
+endif
 
 ################################################################################
 ## SOURCES
