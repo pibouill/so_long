@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:27:37 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 12:12:49 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:56:09 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	img_to_map(&map);
 	printf("player pos %d | %d\n", map.player_j, map.player_i);
-	mlx_loop_hook(map.mlx, hook, map.mlx);
+	mlx_key_hook(map.mlx, &my_keyhook, &map);
 	mlx_loop(map.mlx);
 	free_map_array(&map);
 	mlx_terminate(map.mlx);

@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/07/08 12:51:43 by pibouill         ###   ########.fr        #
+#    Updated: 2024/07/08 13:51:07 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SRC_FILES	:=	main\
 				map_path_check\
 				img_to_map\
 				moves\
+				hooks\
 				update_player
 
 SRC			:= $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC_FILES)))

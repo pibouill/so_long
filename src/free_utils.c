@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 18:19:57 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/03 16:48:56 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:27:03 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,12 @@ void	free_visited(bool **visited, int map_height)
 	while (i < map_height)
 		free(visited[i++]);
 	free(visited);
+}
+
+void	finish_game(t_map *map)
+{
+	free_map_array(map);
+	mlx_terminate(map->mlx);
+	ft_printf("Game finished gg\n");
+	exit(EXIT_SUCCESS);
 }

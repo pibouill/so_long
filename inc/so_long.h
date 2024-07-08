@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 13:02:29 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:47:50 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,9 @@ bool	is_valid_path(t_map *map);
 
 void	img_to_map(t_map *map);
 void	update_player(int i, int j, t_map *map);
+void	finish_game(t_map *map);
+void	player_movement(t_map *map);
+void	my_keyhook(mlx_key_data_t keydata, void *param);
 
 // moves
 void	move_right(int i, int j, t_map *map);
