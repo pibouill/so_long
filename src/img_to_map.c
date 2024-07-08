@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:49:08 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 20:11:04 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 20:19:31 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	img_to_window(t_map *map, int x, int y)
 {
 	if (x == 0 && y == 0)
 		mlx_image_to_window(map->mlx, map->asset.ground,
-				x * UP_RATIO, y * UP_RATIO);
+			x * UP_RATIO, y * UP_RATIO);
 	if (x != 0 || y != 0)
 		mlx_image_to_window(map->mlx, map->asset.ground,
 			x * UP_RATIO, y * UP_RATIO);
@@ -80,12 +80,6 @@ void	load_assets(t_map *map)
 			"./assets/xpm42/open_door.xpm42");
 	map->asset.close_door = asset_to_img(map->mlx,
 			"./assets/xpm42/close_door.xpm42");
-	/*if (map->coin_amount == map->score)*/
-		/*map->asset.door = asset_to_img(map->mlx,*/
-				/*"./assets/xpm42/open_door.xpm42");*/
-	/*else*/
-		/*map->asset.door = asset_to_img(map->mlx,*/
-				/*"./assets/xpm42/close_door.xpm42");*/
 }
 
 void	img_to_map(t_map *map)
@@ -106,5 +100,4 @@ void	img_to_map(t_map *map)
 		}
 		y++;
 	}
-	/*check win*/
 }

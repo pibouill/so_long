@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 13:19:11 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 19:14:46 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 20:19:45 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	do_flood_fill(t_map *map, int i, int j, bool **visited)
 		return ;
 	if (map->array[j][i] == 'C')
 		map->coin_check++;
-	/*Door can or can't block coins*/
 	if (map->array[j][i] == 'E' && map->coin_amount != map->coin_check)
 		return ;
 	visited[j][i] = true;
