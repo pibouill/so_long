@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:34:11 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 18:24:21 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 20:09:19 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	hook(void *param)
 	t_map	*map;
 
 	map = param;
-	img_to_map(map);
+
 }
 
 void	my_keyhook(mlx_key_data_t keydata, void *param)
@@ -29,6 +29,8 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 	map = param;
 	i = map->player_i;
 	j = map->player_j;
+	if (map->coin_amount == map->score)
+		update_door(map);
 	if (keydata.action == MLX_PRESS)
 	{
 		if (keydata.key == MLX_KEY_ESCAPE)

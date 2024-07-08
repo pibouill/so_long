@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 18:28:15 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 20:00:43 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ typedef struct	s_asset
 	mlx_image_t	*ground;
 	mlx_image_t	*wall;
 	mlx_image_t	*player;
-	mlx_image_t	*door;
+	mlx_image_t	*open_door;
+	mlx_image_t	*close_door;
 	mlx_image_t	*coin;
 }			t_asset;
 
@@ -72,6 +73,7 @@ typedef struct s_map
 	int		score;
 	int		moves;
 	t_asset	asset;
+	t_asset old_asset;
 
 }				t_map;
 
@@ -86,10 +88,12 @@ bool	is_valid_path(t_map *map);
 
 void	img_to_map(t_map *map);
 void	update_player(int i, int j, t_map *map);
-void	update_door(int j, int i, t_map *map);
+void	update_door(t_map *map);
 void	finish_game(t_map *map);
 void	player_movement(t_map *map);
 void	my_keyhook(mlx_key_data_t keydata, void *param);
+
+void	load_assets(t_map *map);
 
 // moves
 void	move_right(int i, int j, t_map *map);

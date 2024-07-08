@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:38:01 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 18:38:34 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 20:10:28 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	update_player(int i, int j, t_map *map)
 	map->player_j = j;
 }
 
-void	update_door(int j, int i, t_map *map)
+void	update_door(t_map *map)
 {
-	mlx_image_to_window(map->mlx, map->asset.door,
-		i * UP_RATIO + 7, j * UP_RATIO - 1);
+	mlx_delete_image(map->mlx, map->asset.close_door);
+	mlx_image_to_window(map->mlx, map->asset.open_door,
+			map->exit_i * UP_RATIO + 7, map->exit_j * UP_RATIO - 1);
 }

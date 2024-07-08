@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:49:08 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 18:16:00 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 20:11:04 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ static void	open_check(char *filename)
 
 static void	img_to_window(t_map *map, int x, int y)
 {
+	if (x == 0 && y == 0)
+		mlx_image_to_window(map->mlx, map->asset.ground,
+				x * UP_RATIO, y * UP_RATIO);
 	if (x != 0 || y != 0)
 		mlx_image_to_window(map->mlx, map->asset.ground,
 			x * UP_RATIO, y * UP_RATIO);
@@ -35,7 +38,7 @@ static void	img_to_window(t_map *map, int x, int y)
 		mlx_image_to_window(map->mlx, map->asset.wall,
 			x * UP_RATIO, y * UP_RATIO);
 	else if (map->array[y][x] == 'E')
-		mlx_image_to_window(map->mlx, map->asset.door,
+		mlx_image_to_window(map->mlx, map->asset.close_door,
 			x * UP_RATIO + 7, y * UP_RATIO - 1);
 	else if (map->array[y][x] == 'P')
 		mlx_image_to_window(map->mlx, map->asset.player,
@@ -43,9 +46,6 @@ static void	img_to_window(t_map *map, int x, int y)
 	else if (map->array[y][x] == 'C')
 		mlx_image_to_window(map->mlx, map->asset.coin,
 			(x * UP_RATIO) + 13, (y * UP_RATIO) + 10);
-	if (x == 0 && y == 0)
-		mlx_image_to_window(map->mlx, map->asset.ground,
-				x * UP_RATIO, y * UP_RATIO);
 }
 
 static mlx_image_t	*asset_to_img(mlx_t *mlx, char *path_to_img)
@@ -66,7 +66,7 @@ static mlx_image_t	*asset_to_img(mlx_t *mlx, char *path_to_img)
 	return (img);
 }
 
-static void	load_assets(t_map *map)
+void	load_assets(t_map *map)
 {
 	map->asset.ground = asset_to_img(map->mlx,
 			"./assets/xpm42/ground.xpm42");
@@ -76,12 +76,16 @@ static void	load_assets(t_map *map)
 			"./assets/xpm42/player_125.xpm42");
 	map->asset.coin = asset_to_img(map->mlx,
 			"./assets/xpm42/coin.xpm42");
-	if (map->coin_amount == map->score)
-		map->asset.door = asset_to_img(map->mlx,
-				"./assets/xpm42/open_door.xpm42");
-	else
-		map->asset.door = asset_to_img(map->mlx,
-				"./assets/xpm42/close_door.xpm42");
+	map->asset.open_door = asset_to_img(map->mlx,
+			"./assets/xpm42/open_door.xpm42");
+	map->asset.close_door = asset_to_img(map->mlx,
+			"./assets/xpm42/close_door.xpm42");
+	/*if (map->coin_amount == map->score)*/
+		/*map->asset.door = asset_to_img(map->mlx,*/
+				/*"./assets/xpm42/open_door.xpm42");*/
+	/*else*/
+		/*map->asset.door = asset_to_img(map->mlx,*/
+				/*"./assets/xpm42/close_door.xpm42");*/
 }
 
 void	img_to_map(t_map *map)
@@ -90,6 +94,7 @@ void	img_to_map(t_map *map)
 	int	y;
 
 	y = 0;
+	printf("oausi\n");
 	load_assets(map);
 	while (y < map->height)
 	{
@@ -103,4 +108,3 @@ void	img_to_map(t_map *map)
 	}
 	/*check win*/
 }
-			
