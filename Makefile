@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/07/08 13:51:07 by pibouill         ###   ########.fr        #
+#    Updated: 2024/07/08 14:56:19 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,6 @@ SRC_FILES	:=	main\
 				map_check\
 				utils\
 				get_map_info\
-				hooks\
 				draw_background\
 				build_map_array\
 				error_utils\

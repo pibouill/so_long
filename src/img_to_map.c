@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:49:08 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/05 16:37:53 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:11:34 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ static void	img_to_window(t_map *map, int x, int y)
 	if (x != 0 || y != 0)
 		mlx_image_to_window(map->mlx, map->asset.ground,
 			x * UP_RATIO, y * UP_RATIO);
-	if (x == 0 && y == 0)
-		mlx_image_to_window(map->mlx, map->asset.ground,
-			x * UP_RATIO, y * UP_RATIO);
 	if (map->array[y][x] == '1')
 		mlx_image_to_window(map->mlx, map->asset.wall,
 			x * UP_RATIO, y * UP_RATIO);
@@ -46,6 +43,9 @@ static void	img_to_window(t_map *map, int x, int y)
 	else if (map->array[y][x] == 'C')
 		mlx_image_to_window(map->mlx, map->asset.coin,
 			(x * UP_RATIO) + 13, (y * UP_RATIO) + 10);
+	if (x == 0 && y == 0)
+		mlx_image_to_window(map->mlx, map->asset.ground,
+				x * UP_RATIO, y * UP_RATIO);
 }
 
 static mlx_image_t	*asset_to_img(mlx_t *mlx, char *path_to_img)
@@ -76,13 +76,12 @@ static void	load_assets(t_map *map)
 			"./assets/xpm42/player_125.xpm42");
 	map->asset.coin = asset_to_img(map->mlx,
 			"./assets/xpm42/coin.xpm42");
-	if (map->coin_amount == 0)
+	if (map->coin_amount == map->score)
 		map->asset.door = asset_to_img(map->mlx,
 				"./assets/xpm42/open_door.xpm42");
 	else
 		map->asset.door = asset_to_img(map->mlx,
 				"./assets/xpm42/close_door.xpm42");
-	printf("passed\n");
 }
 
 void	img_to_map(t_map *map)
