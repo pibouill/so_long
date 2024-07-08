@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/07/06 14:03:55 by pibouill         ###   ########.fr        #
+#    Updated: 2024/07/08 12:51:43 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,9 @@ SRC_FILES	:=	main\
 				build_map_array\
 				error_utils\
 				map_path_check\
-				img_to_map
+				img_to_map\
+				moves\
+				update_player
 
 SRC			:= $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC_FILES)))
 OBJ			:= $(addprefix $(BIN_DIR)/, $(addsuffix .o, $(SRC_FILES)))

@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/05 17:36:39 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:02:29 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct s_map
 	int		coin_check;
 	int		screen_w;
 	int		screen_h;
+	int		score;
+	int		moves;
 	t_asset	asset;
 
 }				t_map;
@@ -85,6 +87,13 @@ void	map_check(t_map *map);
 bool	is_valid_path(t_map *map);
 
 void	img_to_map(t_map *map);
+void	update_player(int i, int j, t_map *map);
+
+// moves
+void	move_right(int i, int j, t_map *map);
+void	move_left(int i, int j, t_map *map);
+void	move_down(int i, int j, t_map *map);
+void	move_up(int i, int j, t_map *map);
 
 // error utils
 void	error_free_exit(char *error_mess, t_map *map);
