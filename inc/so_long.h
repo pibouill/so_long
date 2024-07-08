@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 14:55:39 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/08 18:28:15 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@
 # define MAGEN   "\x1B[35m"
 # define RESET "\x1B[0m"
 
-# define MLX_WHITE 0xFFFFFFFF
-# define MLX_BLACK 0x000000FF
 /*# define GREEN  "\e[38;5;118m"
 # define YELLOW	"\e[38;5;226m"
 # define BLUE	"\e[38;5;27m"
@@ -88,6 +86,7 @@ bool	is_valid_path(t_map *map);
 
 void	img_to_map(t_map *map);
 void	update_player(int i, int j, t_map *map);
+void	update_door(int j, int i, t_map *map);
 void	finish_game(t_map *map);
 void	player_movement(t_map *map);
 void	my_keyhook(mlx_key_data_t keydata, void *param);
