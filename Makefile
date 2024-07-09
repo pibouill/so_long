@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/07/09 20:36:08 by pibouill         ###   ########.fr        #
+#    Updated: 2024/07/09 20:45:46 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ OBJ			:= $(addprefix $(BIN_DIR)/, $(addsuffix .o, $(SRC_FILES)))
 
 all: $(NAME)
 
-$(NAME): $(OBJ) mlx
+$(NAME): mlx $(OBJ)
 	+@make -C libft --no-print-directory
 	+@$(CC) -o $(NAME) $(OBJ) -L $(LIBFT_DIR) -l $(LIBFT_CUT) $(MLX_A) $(MLX_INC) $(MLX_FLAGS)
 	+@echo "$(GREEN)[ $(NAME) compiled. ]$(END_COLOR)"
