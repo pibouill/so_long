@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:27:37 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/09 14:06:52 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 16:06:15 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 	map.screen_h = map.height * UP_RATIO;
 	map.mlx = mlx_init(map.screen_w, map.screen_h, "so_long", true);
 	if (map.mlx == NULL)
-		exit(EXIT_FAILURE);
+		error_free_exit("mlx error", &map);
 	img_to_map(&map);
 	mlx_key_hook(map.mlx, &my_keyhook, &map);
 	mlx_loop(map.mlx);
