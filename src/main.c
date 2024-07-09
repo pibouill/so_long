@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:27:37 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 20:32:04 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:06:52 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,7 @@ int	main(int ac, char **av)
 {
 	t_map	map;
 
-	if (ac != 2)
-	{
-		ft_printf(RED "Usage: ./so_long (map).ber\n" RESET);
-		exit(EXIT_FAILURE);
-	}
-	map.map_name = av[1];
-	if (is_ber_file(map.map_name) == false)
-		return (1);
+	args_check(ac, av, &map);
 	init_struct(&map);
 	get_map_size(&map);
 	build_map_array(&map);

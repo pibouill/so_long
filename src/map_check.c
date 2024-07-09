@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:45:03 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/04 11:47:06 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:43:19 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	get_line_width(char *line, t_map *map)
 	return (width);
 }
 
-static bool	is_good_top_and_bot_walls(t_map *map)
+static bool	is_good_surrounding_walls(t_map *map)
 {
 	int	i;
 
@@ -101,8 +101,8 @@ void	map_check(t_map *map)
 {
 	if (is_lines_all_same_length(map) == false)
 		return (error_free_exit("Error\nMap format issue", map));
-	if (is_good_top_and_bot_walls(map) == false)
-		return (error_free_exit("Error\nInvalid top and/or bot walls", map));
+	if (is_good_surrounding_walls(map) == false)
+		return (error_free_exit("Error\nInvalid surrounding walls", map));
 	if (is_good_inside_chars(map) == false)
 		return (error_free_exit("Error\nInvalid map char(s)", map));
 	if (map->c_flag < 1)

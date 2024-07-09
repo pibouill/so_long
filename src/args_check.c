@@ -6,14 +6,14 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:10:54 by pibouill          #+#    #+#             */
-/*   Updated: 2024/06/26 14:40:47 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:39:26 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#define INCORRECT_FILETYPE "Incorrect filetype.\nUse <mapname>.ber only.\n"
+#define INCORRECT_FILETYPE "Error\nIncorrect filetype.\nUse ber files only.\n"
 
-bool	is_ber_file(char *filename)
+static bool	is_ber_file(char *filename)
 {
 	int	i;
 
@@ -27,6 +27,20 @@ bool	is_ber_file(char *filename)
 	}
 	if (ft_strncmp(&filename[i - 4], ".ber", 4) == 0)
 		return (true);
-	ft_printf_fd(2, RED INCORRECT_FILETYPE RESET);
 	return (false);
+}
+
+void	args_check(int ac, char **av, t_map *map)
+{
+	if (ac != 2)
+	{
+		ft_printf_fd(2, RED "Error\nUsage: ./so_long (map).ber\n" RESET);
+		exit(EXIT_FAILURE);
+	}
+	map->map_name = av[1];
+	if (is_ber_file(map->map_name) == false)
+	{
+		ft_printf_fd(2, RED INCORRECT_FILETYPE RESET);
+		exit(EXIT_FAILURE);
+	}
 }

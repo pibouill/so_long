@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/08 20:00:43 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:10:44 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define PURPLE	"\e[38;5;93m"
 # define RESET	"\e[0m"*/
 
-typedef struct	s_asset
+typedef struct s_asset
 {
 	mlx_image_t	*ground;
 	mlx_image_t	*wall;
@@ -73,11 +73,9 @@ typedef struct s_map
 	int		score;
 	int		moves;
 	t_asset	asset;
-	t_asset old_asset;
-
 }				t_map;
 
-bool	is_ber_file(char *filename);
+void	args_check(int ac, char **av, t_map *map);
 int		count_width(const char *s, char c);
 void	build_map_array(t_map *map);
 void	get_map_size(t_map *map);
