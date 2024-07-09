@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 18:19:57 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/09 16:36:31 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 18:43:52 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ void	finish_game(t_map *map)
 	free_map_array(map);
 	mlx_close_window(map->mlx);
 	mlx_terminate(map->mlx);
-	ft_printf("Game finished gg\n");
 	exit(EXIT_SUCCESS);
 }

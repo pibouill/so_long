@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:49:08 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/09 14:25:39 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 18:58:35 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void	img_to_map(t_map *map)
 	int	y;
 
 	y = 0;
-	printf("oausi\n");
 	load_assets(map);
 	while (y < map->height)
 	{

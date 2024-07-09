@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 13:19:11 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/09 13:53:04 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 18:58:05 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ static void	do_flood_fill(t_map *map, int i, int j, bool **visited)
 		map->coin_check++;
 	visited[j][i] = true;
 	if (map->array[j][i] == 'E' && map->coin_amount != map->coin_check)
-	{
-		printf("wowowo\n");
 		return ;
-	}
 	do_flood_fill(map, i - 1, j, visited);
 	do_flood_fill(map, i + 1, j, visited);
 	do_flood_fill(map, i, j - 1, visited);
@@ -105,6 +102,5 @@ bool	is_valid_path(t_map *map)
 	free_visited(visited, map->height);
 	if (map->coin_amount != map->coin_check || valid_path == false)
 		return (false);
-	printf(GREEN"valid map gg\n"RESET);
 	return (true);
 }
