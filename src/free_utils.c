@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 18:19:57 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/09 15:41:48 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/09 16:36:31 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,6 @@ void	free_visited(bool **visited, int map_height)
 void	finish_game(t_map *map)
 {
 	free_map_array(map);
-	/*mlx_delete_image(map->mlx, map->asset.ground);*/
-	/*mlx_delete_image(map->mlx, map->asset.player);*/
-	/*mlx_delete_image(map->mlx, map->asset.coin);*/
-	/*mlx_delete_image(map->mlx, map->asset.open_door);*/
-	/*mlx_delete_image(map->mlx, map->asset.wall);*/
 	mlx_close_window(map->mlx);
 	mlx_terminate(map->mlx);
 	ft_printf("Game finished gg\n");
