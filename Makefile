@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/07/09 16:14:37 by pibouill         ###   ########.fr        #
+#    Updated: 2024/07/09 19:16:02 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,15 +41,15 @@ endif
 ## COLORS
 
 ifeq ($(UNAME), Linux)
-	GREEN		:= \e[38;5;118m
-	YELLOW		:= \e[38;5;226m
-	BLUE		:= \e[38;5;27m
 	RED			:= \e[38;5;196m
 	ORANGE		:= \e[38;5;208m
-	END_COLOR	:= \e[0m
+	GREEN		:= \033[0;92m
+	YELLOW      := \033[0;93m
+	BLUE        := \033[0;94m
+	END_COLOR	:= \033[0;39m
 endif
 ifeq ($(UNAME), Darwin)
-	GREEN       := \033[0;92m
+	GREEN		:= \033[0;92m
 	YELLOW      := \033[0;93m
 	BLUE        := \033[0;94m
 	RED         := \033[0;91m
@@ -84,7 +84,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	+@make -C libft --no-print-directory
 	+@$(CC) -o $(NAME) $(OBJ) -L $(LIBFT_DIR) -l $(LIBFT_CUT) $(MLX_A) $(MLX_INC) $(MLX_FLAGS)
-	+@echo "$(GREEN)$(NAME) compiled.$(END_COLOR)"
+	+@echo "$(GREEN)[ $(NAME) compiled. ]$(END_COLOR)"
 
 mlx: 
 	+@if [ ! -d $(MLX_DIR) ]; then \
@@ -117,7 +117,7 @@ fclean: clean
 	+@$(RM) bin $(NAME) libft/libft.a
 	+@echo "$(YELLOW)$(NAME) executable file cleaned.$(END_COLOR)"
 	+@echo "$(YELLOW)lib/MLX42 cleaned.$(END_COLOR)"
-	+@printf "$(ORANGE)bin/ cleaned\n$(END_COLOR)"
+	+@printf "$(ORANGE)$(NAME) bin/ cleaned\n$(END_COLOR)"
 
 re: fclean all
 	+@echo "$(RED)Cleaned all and rebuilt $(NAME) and $(LIBFT_DIR)$(END_COLOR)"
