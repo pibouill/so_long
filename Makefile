@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/07/10 12:51:48 by pibouill         ###   ########.fr        #
+#    Updated: 2024/07/10 14:00:09 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,6 @@ mlx:
 		printf "$(GREEN)\n------------------------\n\n$(END_COLOR)"; \
 		printf "$(GREEN)MLX42 built.\n$(END_COLOR)"; \
 		printf "$(GREEN)\n------------------------\n$(END_COLOR)"; \
-		echo "$(ORANGE)\nYou can now make.$(END_COLOR)"; \
 	else \
 		printf "$(GREEN)\n------------------------\n\n$(END_COLOR)"; \
 		printf "$(GREEN)MLX42 already built.\n$(END_COLOR)"; \
