@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:27:13 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/09 14:10:44 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:57:41 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@
 # define MAGEN   "\x1B[35m"
 # define RESET "\x1B[0m"
 
-/*# define GREEN  "\e[38;5;118m"
-# define YELLOW	"\e[38;5;226m"
-# define BLUE	"\e[38;5;27m"
-# define RED	"\e[38;5;196m"
-# define ORANGE	"\e[38;5;208m"
-# define PURPLE	"\e[38;5;93m"
-# define RESET	"\e[0m"*/
-
 typedef struct s_asset
 {
 	mlx_image_t	*ground;
@@ -53,6 +45,7 @@ typedef struct s_asset
 typedef struct s_map
 {
 	mlx_t	*mlx;
+	t_asset	asset;
 	char	**array;
 	char	*map_name;
 	int		width;
@@ -72,7 +65,6 @@ typedef struct s_map
 	int		screen_h;
 	int		score;
 	int		moves;
-	t_asset	asset;
 }				t_map;
 
 void	args_check(int ac, char **av, t_map *map);
@@ -80,18 +72,18 @@ int		count_width(const char *s, char c);
 void	build_map_array(t_map *map);
 void	get_map_size(t_map *map);
 void	hook(void *param);
-void	draw_background(mlx_image_t *img);
 void	map_check(t_map *map);
 bool	is_valid_path(t_map *map);
 
-void	img_to_map(t_map *map);
 void	update_player(int i, int j, t_map *map);
 void	update_door(t_map *map);
-void	finish_game(t_map *map);
 void	player_movement(t_map *map);
 void	my_keyhook(mlx_key_data_t keydata, void *param);
 
+void	img_to_map(t_map *map);
 void	load_assets(t_map *map);
+
+void	finish_game(t_map *map);
 
 // moves
 void	move_right(int i, int j, t_map *map);
