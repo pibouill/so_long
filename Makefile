@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 13:22:42 by pibouill          #+#    #+#              #
-#    Updated: 2024/07/09 20:45:46 by pibouill         ###   ########.fr        #
+#    Updated: 2024/07/10 12:51:48 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,7 +114,7 @@ clean:
 	 +@make clean -C libft --no-print-directory
 
 fclean: clean
-	+@$(RM) bin $(NAME) libft/libft.a
+	+@$(RM) bin $(NAME) libft/libft.a lib/MLX42
 	+@echo "$(YELLOW)$(NAME) executable file cleaned.$(END_COLOR)"
 	+@echo "$(YELLOW)lib/MLX42 cleaned.$(END_COLOR)"
 	+@printf "$(ORANGE)$(NAME) bin/ cleaned\n$(END_COLOR)"
