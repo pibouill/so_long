@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:25:33 by pibouill          #+#    #+#             */
-/*   Updated: 2024/07/09 18:59:30 by pibouill         ###   ########.fr       */
+/*   Updated: 2024/07/11 15:44:10 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	move_right(int i, int j, t_map *map)
 			ft_printf(GREEN "\n[ You win gg ]\n" RESET);
 			finish_game(map);
 		}
+		else
+			return ;
 	}
 	map->moves++;
 	map->array[j][i] = '0';
@@ -44,6 +46,8 @@ void	move_left(int i, int j, t_map *map)
 			ft_printf(GREEN "\n[ You win gg ]\n" RESET);
 			finish_game(map);
 		}
+		else
+			return ;
 	}
 	map->moves++;
 	map->array[j][i] = '0';
@@ -65,6 +69,8 @@ void	move_up(int i, int j, t_map *map)
 			ft_printf(GREEN "\n[ You win gg ]\n" RESET);
 			finish_game(map);
 		}
+		else
+			return ;
 	}
 	map->moves++;
 	map->array[j][i] = '0';
@@ -86,6 +92,8 @@ void	move_down(int i, int j, t_map *map)
 			ft_printf(GREEN "\n[ You win gg ]\n" RESET);
 			finish_game(map);
 		}
+		else
+			return ;
 	}
 	map->moves++;
 	map->array[j][i] = '0';
