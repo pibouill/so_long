@@ -22,4 +22,4 @@ make
 ```
 
 
-Sprites => ![Anokolisa - Pixel Crawler](https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack)
+Sprites => [Anokolisa - Pixel Crawler](https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack)
