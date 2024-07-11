@@ -11,7 +11,11 @@
 
 ![so_long](ressources/so_long.png)
 
+---
+
 Developed using the [MLX42](https://github.com/codam-coding-college/MLX42) library
+
+---
 
 ## Usage
 
@@ -21,5 +25,6 @@ make
 ./so_long maps/(map_name).ber
 ```
 
+---
 
 Sprites => [Anokolisa - Pixel Crawler](https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack)
