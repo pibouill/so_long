@@ -21,6 +21,11 @@ Developed using the [MLX42](https://github.com/codam-coding-college/MLX42) libra
 
 ---
 
+## Requirements
+- make
+- cc
+- cmake
+
 ## Usage
 
 ```
