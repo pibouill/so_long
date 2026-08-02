@@ -15,8 +15,9 @@ CC			:=	cc
 RM			:=	rm -rf
 CFLAGS		:=	-Wall -Werror -Wextra -g
 MLX_FLAGS	:=
+BREW_PREFIX	:=	$(shell brew --prefix 2>/dev/null)
 LINUX_FLAGS :=	-ldl -lglfw -pthread -lm
-MACOS_FLAGS :=	-lglfw -framework Cocoa -framework OpenGL -framework IOKit
+MACOS_FLAGS :=	-L $(BREW_PREFIX)/lib -lglfw -framework Cocoa -framework OpenGL -framework IOKit
 SRC_DIR		:=	src
 INC_DIR		:=	-I ./inc/
 MLX_DIR		:=	lib/MLX42/
@@ -89,6 +90,8 @@ $(NAME): mlx $(OBJ)
 mlx: 
 	+@if [ ! -d $(MLX_DIR) ]; then \
         git clone https://github.com/codam-coding-college/MLX42.git $(MLX_DIR); \
+	fi
+	+@if [ ! -f $(MLX_A) ]; then \
 		cmake $(MLX_DIR) -B $(MLX_DIR)/build && make -C $(MLX_DIR)/build -j4; \
 		printf "$(GREEN)\n------------------------\n\n$(END_COLOR)"; \
 		printf "$(GREEN)MLX42 built.\n$(END_COLOR)"; \
